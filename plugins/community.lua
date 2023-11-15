@@ -11,6 +11,8 @@ return {
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
 
+  { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
+
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.cpp" },
