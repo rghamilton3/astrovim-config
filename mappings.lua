@@ -9,14 +9,14 @@ return {
     -- second key is the lefthand side of the map
 
     -- navigate buffer tabs with `H` and `L`
-    -- L = {
-    --   function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-    --   desc = "Next buffer",
-    -- },
-    -- H = {
-    --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-    --   desc = "Previous buffer",
-    -- },
+    L = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
+    H = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
 
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
@@ -32,9 +32,37 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+
+    -- replace default next/prev tab bindings with todo-commments
+    ["]t"] = {
+      function() require("todo-comments").jump_next() end,
+      desc = "Next todo comment",
+    },
+    ["[t"] = {
+      function() require("todo-comments").jump_prev() end,
+      desc = "Previous todo comment",
+    },
+    -- better increment/decrement
+    ["-"] = { "<c-x>", desc = "Descrement number" },
+    ["+"] = { "<c-a>", desc = "Increment number" },
+    -- resize with arrows
+    ["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
+    ["<Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
+    ["<Left>"] = { function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
+    ["<Right>"] = { function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
+    -- misc
+    ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
+    ["<leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
+    ["<leader>z"] = { "<cmd>ZenMode<cr>", desc = "Zen Mode" },
   },
+  -- terminal mappings
   t = {
-    -- setting a mapping to false will disable it
-    -- ["<esc>"] = false,
+    ["<C-BS>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
+    ["<esc><esc>"] = { "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
+  },
+  x = {
+    -- better increment/decrement
+    ["+"] = { "g<C-a>", desc = "Increment number" },
+    ["-"] = { "g<C-x>", desc = "Descrement number" },
   },
 }
