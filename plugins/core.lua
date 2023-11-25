@@ -63,15 +63,28 @@ return {
   --   end,
   -- },
   -- By adding to the which-key config and using our helper function you can add more which-key registered bindings
-  -- {
-  --   "folke/which-key.nvim",
-  --   config = function(plugin, opts)
-  --     require "plugins.configs.which-key"(plugin, opts) -- include the default astronvim config that calls the setup call
-  --     -- Add bindings which show up as group name
-  --     local wk = require "which-key"
-  --     wk.register({
-  --       b = { name = "Buffer" },
-  --     }, { mode = "n", prefix = "<leader>" })
-  --   end,
-  -- },
+  {
+    "folke/which-key.nvim",
+    config = function(plugin, opts)
+      require "plugins.configs.which-key"(plugin, opts) -- include the default astronvim config that calls the setup call
+      -- Add bindings which show up as group name
+      local wk = require "which-key"
+      wk.register({
+        t = { name = "Neotest" },
+      }, { mode = "n", prefix = "<leader>" })
+      wk.register({
+        r = { name = "RestNvim" },
+      }, { mode = "n", prefix = "<leader>" })
+    end,
+  },
+  -- Move the notify window
+  {
+    "rcarriga/nvim-notify",
+    opts = function(_, opts)
+      opts.top_down = false
+      return opts
+    end,
+  },
+  -- I use Wezterm's splits more and I'd rather use the mappings for Neotest
+  { "akinsho/toggleterm.nvim", enabled = false },
 }

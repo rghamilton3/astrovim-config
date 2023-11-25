@@ -1,6 +1,7 @@
 return {
   -- Add the community repository of plugin specifications
   "AstroNvim/astrocommunity",
+  branch = "eslint-lsp",
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
   -- { import = "astrocommunity.colorscheme.catppuccin" },
@@ -21,18 +22,16 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.markdown" },
-  { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.svelte" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.toml" },
-  { import = "astrocommunity.pack.typescript-all-in-one" },
+  { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
 
   { import = "astrocommunity.programming-language-support.nvim-jqx" },
   { import = "astrocommunity.programming-language-support.rest-nvim" },
   { import = "astrocommunity.programming-language-support.web-tools-nvim" },
-
-  { import = "astrocommunity.test.neotest" },
 
   { import = "astrocommunity.workflow.hardtime-nvim" },
 }

@@ -54,6 +54,17 @@ return {
     ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
     ["<leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
     ["<leader>z"] = { "<cmd>ZenMode<cr>", desc = "Zen Mode" },
+    -- Neotest
+    ["<leader>tr"] = { function() require("neotest").run.run() end, desc = "Run nearest test" },
+    ["<leader>tl"] = { function() require("neotest").run.run_last() end, desc = "Run last test" },
+    ["<leader>tf"] = { function() require("neotest").run.run(vim.fn.expand "%") end, desc = "Run current file" },
+    ["<leader>td"] = { function() require("neotest").run.run { strategy = "dap" } end, desc = "Debug the nearest test" },
+    ["<leader>tS"] = { function() require("neotest").run.stop() end, desc = "Stop the nearest test" },
+    ["<leader>ta"] = { function() require("neotest").run.attach() end, desc = "Attach to the nearest test" },
+    ["<leader>ts"] = { function() require("neotest").summary.toggle() end, desc = "Toggle Summary window" },
+    -- REST
+    ["<leader>rp"] = { "<Plug>RestNvimPreview", desc = "Preview the request cURL command" },
+    ["<leader>rl"] = { "<Plug>RestNvimLast", desc = "Re-run the last request" },
   },
   -- terminal mappings
   t = {
